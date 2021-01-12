@@ -15,6 +15,7 @@ function getContentType(url) {
   }
 }
 
+
 module.exports = (req, res) => {
   const pathname = url.parse(req.url).pathname;
 
