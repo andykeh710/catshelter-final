@@ -1,8 +1,11 @@
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
-//const cats = require('../data/cats.json');
-//const breeds = require('../data/breeds.json')
+const qs = require('querystring');
+const formidable = require('formidable');
+const breeds = require ('../data/breeds.json');
+const cats = require('../data/cats.json');
+
 
 
 module.exports = (req, res) => {
@@ -36,7 +39,12 @@ module.exports = (req, res) => {
       const index = fs.createReadStream(filePath)  // read page and set to this variabl;e
 
       index.on('data', (data) => {
-          res.write(data);
+        console.log("the breeds are  ", breeds );
+        let catBreedPlaceHolder = breeds.map( (breed) => `<option value"${breed}">${breed}</option>`);
+        let modifiedData = data.toString().replace('{{catBreeds}}', catBreedPlaceHolder)
+
+
+          res.write(modifiedData);
       });
       index.on('end', () => {
           res.end();
@@ -62,12 +70,39 @@ module.exports = (req, res) => {
 
 
   } else if (pathname === '/cats/add-breed' && req.method === 'POST') {
-  let formData = ""
+  let formData = "";
+
     req.on('data', (data) => {
-      console.log("the breed form data is ", data);
+      console.log("the breed form data is ", data.toString());
       formData += data;
-      console.log("the new data is ", formData)
-    })
+      console.log("the new data is ", formData);
+      let parsedData = qs.parse(formData);
+      console.log(parsedData.breed)
+      -
+
+fs.readFile("./data/breeds.json", 'utf8', (err, data)=> {
+  if (err){
+    console.log(err)
+  return
+  }
+  console.log("the breeds json data is ", data)
+  let currentBreeds = JSON.parse(data);
+  console.log("This is the current", currentBreeds);
+  currentBreeds.push(parsedData.breed);
+
+  console.log(currentBreeds)
+
+  let updatedBreeds = JSON.stringify(currentBreeds)
+
+  fs.writeFile('./data/breeds.json', updatedBreeds, 'utf-8', () => {
+    console.log("the breed was uploaded success ")
+  })
+  res.writeHead(302, { location: '/'});
+  res.end()
+});
+
+
+});
 } else {
     return true;
   }
