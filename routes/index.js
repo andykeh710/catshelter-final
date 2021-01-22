@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('add-breed', { title: 'FROGS breed form' });
+  res.render('index', { title: 'cat shelter' });
 });
 
 module.exports = router;

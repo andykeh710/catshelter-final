@@ -18,16 +18,36 @@
                 <li><a href="/cats/add-cat">Add Cat</a></li>
             </ul> 
         </nav>
-        <h1>Cat Shelter</h1>
+
         <h1>{{title}}</h1>
-        <p>welcome to {{title}}</p>
         <form action="/search">
             <input type="text">
             <button type="button">Search</button>
         </form>
     </header>
-	
     <main>
+        <section class="cats">
+<li>
+    <ul>
+    {{#each cats}}
+    <li>
+                    <img src="/images/{{this.image}}" alt="{{this.name}}">
+                    <h3>{{this.name}}</h3>
+                    <p><span>Breed: </span>{{this.breed}}</p>
+                    <p><span>Description: </span>{{this.description}}</p>
+                    <ul class="buttons">
+						<li class="btn edit"><a href="">Change Info</a></li>
+						<li class="btn delete"><a href="">New Home</a></li>
+            </ul>
+{{/each}}
+            </ul>
+        </section>
+    </main>
+
+
+
+	
+    {{!-- <main>
         <section class="cats">
             <ul>
                 <li>
@@ -83,7 +103,7 @@
                 </li>
             </ul>
         </section>
-    </main>
+    </main> --}}
 
 </body>
 </html>
