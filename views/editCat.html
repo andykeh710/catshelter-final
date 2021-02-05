@@ -19,6 +19,7 @@
         </nav>
         <h1>Cat Shelter</h1>
     </header>
+<<<<<<< HEAD
         <form action="" class="cat-form" enctype="multipart/form-data">
             <h2>Edit Cat</h2>
             <label for="name">Name</label>
@@ -33,5 +34,22 @@
             </select>
             <button>Edit Cat</button>
         </form>
+=======
+        <form action="/cats-edit/{{id}}" method="POST" class="cat-form" enctype="multipart/form-data">
+            <h2>Edit Cat</h2>
+            <label for="name">Name</label>
+            <input type="text" id="name" value="{{name}}">
+            <label for="description">Description</label>
+            <textarea id="description">{{description}}</textarea>
+            <label for="image">Image</label>
+            <input type="file" id="image">
+            <label for="group">Breed</label>
+            <select name="breed" id="group">
+                {{catBreeds}}
+            </select>
+            <button type="submit">Edit Cat</button>
+        </form>
+        {{edit}}
+>>>>>>> f2c63cf... Working cat Shelter
 </body>
 </html>

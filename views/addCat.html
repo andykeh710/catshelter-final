@@ -22,6 +22,7 @@
         <form action="/cats/add-cat" method="POST" class="cat-form" enctype="multipart/form-data">
             <h2>Add Cat</h2>
             <label for="name">Name</label>
+<<<<<<< HEAD
             <input name="name" type="text" id="name">
             <label for="description">Description</label>
             <textarea name="description" id="description"></textarea>
@@ -29,10 +30,23 @@
             <input name="upload" type="file" id="image">
             <label for="group">Breed</label>
             <select name="breed" id="group">
+=======
+            <input name="name" type="text" id="name" style="border:3px outset black">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" style="border:3px outset black"></textarea>
+            <label for="image">Image</label>
+            <input name="upload" type="file" id="image" style="border:3px outset black">
+            <label for="group">Breed</label>
+            <select name="breed" id="group" style="border:3px outset black">
+>>>>>>> f2c63cf... Working cat Shelter
                 <!-- Render my cat breeds here -->
                 {{catBreeds}}
             </select>
             <button type="submit">Add Cat</button>
         </form>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html> 
+>>>>>>> f2c63cf... Working cat Shelter

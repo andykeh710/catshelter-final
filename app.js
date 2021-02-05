@@ -6,7 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var addBreedRouter = require('./routes/addBreed');
+var addCatRouter = require('./routes/addCat');
+var editCatRouter = require('./routes/editCat');
+var newHomeRouter = require('./routes/new-home');
 var app = express();
 
 // view engine setup
@@ -21,7 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/cats/add-breed', addBreedRouter);
+app.use('/cats/add-cat', addCatRouter);
+app.use('/cats/edit-cat', editCatRouter);
+app.use('/cats/new-home', newHomeRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -38,4 +44,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+const port = 1337;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
 module.exports = app;
