@@ -3,49 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const qs = require('querystring');
 const formidable = require('formidable');
-<<<<<<< HEAD
-const breeds = require('../data/breeds');
-const cats = require('../data/cats');
-
-
-module.exports = (req, res) => {
-    const pathname = url.parse(req.url).pathname;
-
-    if (pathname === '/cats/add-cat' && req.method ==="GET"){
-        let filePath = path.normalize(path.join(__dirname, '../views/addCat.html'));
-
-        const index = fs.createReadStream(filePath)  // read page and set to this variabl;e
-
-        index.on('data', (data) => {
-            res.write(data);
-        });
-        index.on('end', () => {
-            res.end();
-        })
-        index.on('error', () => {
-            console.log("error");
-        })
-        
-    }   else if (pathname === '/cats/add-breed' && req.method === 'GET') {
-        let filePath = path.normalize(path.join(__dirname, '../views/addBreed.html'));
-
-        const index = fs.createReadStream(filePath)  // read page and set to this variabl;e
-
-        index.on('data', (data) => {
-            res.write(data);
-        });
-        index.on('end', () => {
-            res.end();
-        })
-        index.on('error', () => {
-            console.log("error");
-        })
-
-
-    } else {
-        return true 
-    }
-=======
 const breeds = require ('../data/breeds.json');
 const cats = require('../data/cats.json');
 
@@ -497,10 +454,9 @@ module.exports = (req, res) => {
   }
 }
 function search(arr, val) {
-  for (let i=0; i<arr.length; i++) {     //search cats arr and find the cat with the id
+  for (let i=0; i<arr.length; i++) {    
       if (arr[i].id === val) {
           return arr[i];
       }
   }
->>>>>>> f2c63cf... Working cat Shelter
 }

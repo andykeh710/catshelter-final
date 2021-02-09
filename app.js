@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var addBreedRouter = require('./routes/addBreed');
+var searchRouter = require('./routes/search');
 var addCatRouter = require('./routes/addCat');
 var editCatRouter = require('./routes/editCat');
 var newHomeRouter = require('./routes/new-home');
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/search', searchRouter);
 app.use('/cats/add-breed', addBreedRouter);
 app.use('/cats/add-cat', addCatRouter);
 app.use('/cats/edit-cat', editCatRouter);

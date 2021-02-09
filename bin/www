@@ -5,22 +5,14 @@
  */
 
 var app = require('../app');
-<<<<<<< HEAD
 var debug = require('debug')('cat-shelter:server');
-=======
-var debug = require('debug')('cat-shelter-main:server');
->>>>>>> f2c63cf... Working cat Shelter
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-<<<<<<< HEAD
-var port = normalizePort(process.env.PORT || '3000');
-=======
 var port = normalizePort(process.env.PORT || '3007');
->>>>>>> f2c63cf... Working cat Shelter
 app.set('port', port);
 
 /**
