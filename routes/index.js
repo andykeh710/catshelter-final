@@ -4,7 +4,7 @@ const cats = require('../data/cats.json');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', cats: cats }); // this is how you inject handlebars 
+  res.render('index', { title: 'Frogs Are Real ', cats: cats }); // this is how you inject handlebars 
 });
 
 module.exports = router;
